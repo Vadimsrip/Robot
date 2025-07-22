@@ -72,11 +72,11 @@ komandi = gets.to_s.strip
 
 #комнада MOVE , рабочая))) 
 if koordinata_z == "Север"
-  koordinata_Y = koordinata_Y + 1 
+  koordinata_Y = (koordinata_Y + 1) ! > 5
   elsif koordinata_z == "ЮГ" 
   koordinata_Y = koordinata_Y -1 
   elsif koordinata_z == "Восток"
-  koordinata_X = koordinata_X +1 
+  koordinata_X = koordinata_X +1 !>5 
   else 
   koordinata_X = koordinata_X -1
 end
