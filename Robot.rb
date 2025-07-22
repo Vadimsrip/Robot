@@ -45,7 +45,6 @@ puts "Введите значение координаты Y.."
 loop do 
   koordinata_Y = gets.to_i
 
-
 if koordinata_Y > 5 
    puts "Значение выше допустимого, робот разобьется , измените значение.."
   else
@@ -62,17 +61,51 @@ koordinata_z = gets.to_s.strip
 
 #Попытка что то типо MOVE , пока бред , думаем дальше 
 #но сыро очень 
-move_fan = {:"Север" => koordinata_Y +1  ,:"ЮГ"=> koordinata_Y - 1 , :" Восток " => koordinata_X +1 , :"Запад" => koordinata_X-1 }
 
-puts move_fan 
 
-puts "Идет перещение робота .."
+
+
+
+puts "Введите следующую команду..."
+
+komandi = gets.to_s.strip 
+
+
+if koordinata_z == "Север"
+  koordinata_Y = koordinata_Y + 1 
+  elsif koordinata_z == "ЮГ" 
+  koordinata_Y = koordinata_Y -1 
+  elsif koordinata_z == "Восток"
+  koordinata_X = koordinata_X +1 
+  else 
+  koordinata_X = koordinata_X -1
+end
+
+MOVE = [koordinata_X , koordinata_Y , koordinata_z]
+
+
+
+  
+  
+  
+
+
+
+
+
 
 
 
 report = [koordinata_X, koordinata_Y ,koordinata_z ]
 
 puts report
+ 
+
+
+
+
+
+
 
 
 
