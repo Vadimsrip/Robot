@@ -21,12 +21,12 @@ end
 puts "Для управления роботом используйте список команд .."
 # Список команд зациклен внутри этого списка 
 komandi_dvigeniya = ["PLACE X,Y,F" , "MOVE" , "LEFT" , "RIGHT" , "REPORT"]
-  komandi_dvigeniya.each do |komandi_dvigeniya|
-    puts komandi_dvigeniya
-  end 
+komandi_dvigeniya.each do |komandi_dvigeniya|
+  puts komandi_dvigeniya
+end 
 koordinata_X = 0 
 koordinata_Y = 0 
-  puts "Введите значение координаты X .."
+puts "Введите значение координаты X .."
 loop do
   koordinata_X = gets.to_i
 # Вводим кажду переменную по отдельности 
