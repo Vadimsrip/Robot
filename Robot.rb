@@ -70,7 +70,7 @@ puts "Введите следующую команду..."
 
 komandi = gets.to_s.strip 
 
-
+#комнада MOVE , рабочая))) 
 if koordinata_z == "Север"
   koordinata_Y = koordinata_Y + 1 
   elsif koordinata_z == "ЮГ" 
