@@ -39,7 +39,6 @@ end
 puts "Введите значение координаты Y.."
 loop do 
   koordinata_Y = gets.to_i
-
   if koordinata_Y > 5 
     puts "Значение выше допустимого, робот разобьется , измените значение.."
   else
@@ -71,18 +70,9 @@ if komandi == "MOVE"
     end
 else 
 end
-
 # puts "Введите следующую команду.."
-
 # komandi_2 = gets.to_s.strip 
-
-
-
-
-
-
 report = [koordinata_X, koordinata_Y ,koordinata_z ]
-
 puts report
  
 
