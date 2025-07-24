@@ -3,13 +3,14 @@
 # Начало координат (0,0) можно считать самым юго-западным углом.
 # X-длинна , Y-ширина , F-направление робота
 
-puts " Введите PLACE для запуска вашего робота.. "
+  puts " Введите PLACE для запуска вашего робота.. "
 
-loop do 
+loop do
   name_komand = gets.to_s.strip.downcase
   # downcase преобразует буквы в маленькие!
   # PLACE вводится с клавиатуры
   # удаляекм лишнее с помощью strip для вводеа через энтер
+
   if name_komand == "place".downcase
     puts "Добро пожаловать в вашего личного робота.. "
     break
@@ -17,58 +18,23 @@ loop do
     puts "Первыя команда всегда должна быть PLACE , введите команду верно."
   end
 end
-
-puts "Для управления роботом используйте список команд .."
-
-# Список команд зациклен внутри этого списка 
-komandi_dvigeniya = ["PLACE X,Y,F" , "MOVE" , "LEFT" , "RIGHT" , "REPORT"]
-komandi_dvigeniya.each do |komandi_dvigeniya|
-  puts komandi_dvigeniya
-end
+puts "Введите команды.."
 
 koordinata_X = 0
 koordinata_Y = 0
 
-puts "Введите значение координаты X .."
 
-loop do
-  koordinata_X = gets.to_i
-  # Вводим кажду переменную по отдельности
-  if koordinata_X > 5
-    puts "Значение выше допустимого , робот разобьется , измените значение... "
-  else
-    break
-  end
-end
 
-puts "Введите значение координаты Y.."
+name_komand_1 = gets.to_s.strip.downcase.split
+argyments = name_komand_1[1].split(",")
+ puts argyments.inspect 
+koordinata_X = argyments[0]
+koordinata_Y = argyments[1]
+koordinata_z = argyments[2]
 
-loop do 
-  koordinata_Y = gets.to_i
-  if koordinata_Y > 5
-    puts "Значение выше допустимого, робот разобьется , измените значение.."
-  else
-    break
-  end
-end
-
-puts "Выберете направление движения робота из списка ниже .."
-
-spisok_z = ["Север" , "ЮГ" , "Восток" , "Запад"]
-spisok_z.each do |spisok_z|
-  puts spisok_z
-end
-
-# здесь пока оставляем список , как зациклить и сравнить думаем
-koordinata_z = gets.to_s.strip
-# Попытка что то типо MOVE , пока бред , думаем дальше
-# но сыро очень
-puts "Введите следующую команду..."
-
-komandi = gets.to_s.strip
-# комнада MOVE , рабочая)))
 MOVE = [koordinata_X , koordinata_Y , koordinata_z]
-if komandi == "MOVE"
+
+if name_komand_1 == "MOVE"
   if koordinata_z == "Север"
     koordinata_Y = koordinata_Y + 1 
   elsif koordinata_z == "ЮГ" 
@@ -80,13 +46,11 @@ if komandi == "MOVE"
   end 
 end
 
-# puts "Введите следующую команду.."
-# komandi_2 = gets.to_s.strip
+
 
 report = [koordinata_X, koordinata_Y ,koordinata_z ]
 
 puts report
- 
 
 # задаем ввоб переменных x и y , f
 
