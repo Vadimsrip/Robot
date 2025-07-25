@@ -13,46 +13,28 @@ loop do
 
   if name_komand == "place".downcase
     puts "Добро пожаловать в вашего личного робота.. "
-    break
-  else
+  else 
     puts "Первыя команда всегда должна быть PLACE , введите команду верно."
   end
+
+  koordinata_X = 0
+  koordinata_Y = 0
+  koordinata_F = "Север"
+
+  name_komand_1 = gets.to_s.strip.downcase.split
+  argyments = name_komand_1[1].split(",")
+
+  koordinata_X = argyments[0]
+  koordinata_Y = argyments[1]
+  koordinata_F = argyments[2]
+
+  report = [koordinata_X, koordinata_Y ,koordinata_F]
+break
+
+
+  #puts report
 end
 
-puts "Введите команды.."
-
-koordinata_X = 0
-koordinata_Y = 0
-
-name_komand_1 = gets.to_s.strip.downcase.split
-
-argyments = name_komand_1[1].split(",")
-
-koordinata_X = argyments[0]
-koordinata_Y = argyments[1]
-koordinata_z = argyments[2]
-
-MOVE = [koordinata_X , koordinata_Y , koordinata_z]
-
-if name_komand_1[0] == "MOVE"
-  if koordinata_z == "Север"
-    koordinata_Y = koordinata_Y + 1 
-  elsif koordinata_z == "ЮГ" 
-    koordinata_Y = koordinata_Y -1 
-  elsif koordinata_z == "Восток"
-    koordinata_X = koordinata_X +1  
-  else 
-    koordinata_X = koordinata_X -1
-  end 
-end
-
-
-
-report = [koordinata_X, koordinata_Y ,koordinata_z ]
-
-puts report
-
-# задаем ввоб переменных x и y , f
 
 
 
