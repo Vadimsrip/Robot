@@ -6,34 +6,39 @@
 puts " Введите PLACE для запуска вашего робота.. "
 
 loop do
-  name_komand = gets.to_s.strip.downcase
+  name_komand = gets.to_s.strip.downcase.split
   # downcase преобразует буквы в маленькие!
   # PLACE вводится с клавиатуры
   # удаляекм лишнее с помощью strip для вводеа через энтер
-
-  if name_komand == "place".downcase
-    puts "Добро пожаловать в вашего личного робота.. "
-  else 
-    puts "Первыя команда всегда должна быть PLACE , введите команду верно."
-  end
 
   koordinata_X = 0
   koordinata_Y = 0
   koordinata_F = "Север"
 
-  name_komand_1 = gets.to_s.strip.downcase.split
-  argyments = name_komand_1[1].split(",")
+  if name_komand == "place"
+    argyments = name_komand[1].split(",")
+    koordinata_X = argyments[0]
+    koordinata_Y = argyments[1]
+    koordinata_F = argyments[2]
+  elsif name_komand == "move"
+    #и вот здесь я хотел добавить if , со смыслом что если координата F = какое либо направление, тогда X или Y +1
+  elsif name_komand == "report"
+    report = [koordinata_X, koordinata_Y ,koordinata_F]
+    puts report
+    break
+  else 
+    puts "Первыя команда всегда должна быть PLACE , введите команду верно."
+  end
+end
 
-  koordinata_X = argyments[0]
-  koordinata_Y = argyments[1]
-  koordinata_F = argyments[2]
+  
 
-  report = [koordinata_X, koordinata_Y ,koordinata_F]
-break
+ 
+
+  
 
 
   #puts report
-end
 
 
 
