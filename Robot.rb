@@ -17,8 +17,8 @@ loop do
   if command == "place"
     command_2 = gets.to_s.strip.downcase.split
     argyments = command_2[1].split(",")
-    x = argyments[0].to_i
-    y = argyments[1].to_i
+    x = argyments[0].to_i 
+    y = argyments[1].to_i  
     direction = argyments[2].to_s
   elsif command == "move"
     if direction == "запад"
@@ -37,8 +37,17 @@ loop do
   else
     puts "Первыя команда всегда должна быть PLACE , введите команду верно."
   end
+
+  if x > 5 
+    puts "Измените значение x , иначе робот разобьется"
+  elsif y > 5 
+    puts "Измените значение y , иначе робот разобьется"
+  else
+  end
+
 end
  
+
 
 
 
