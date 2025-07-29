@@ -6,7 +6,7 @@
 puts " Введите PLACE для запуска вашего робота.. "
 x = 0
 y = 0
-direction = "Север"
+direction = nil
 
 loop do
   command = gets.to_s.strip.downcase
@@ -21,16 +21,15 @@ loop do
     y = argyments[1].to_i
     direction = argyments[2].to_s
   elsif command == "move"
-    if direction == "Запад"
+    if direction == "запад"
       x = x - 1
-    elsif direction == "ЮГ"
+    elsif direction == "юг"
       y = y - 1
-    elsif direction == "Восток"
+    elsif direction == "восток"
       x = x + 1
-    else direction == "Север"
+    else
       y = y + 1
     end
-    #не видит во втором if ничего кроме else , почему пока не ясно
   elsif command == "report"
     report = [x, y , direction]
     puts report
@@ -39,12 +38,7 @@ loop do
     puts "Первыя команда всегда должна быть PLACE , введите команду верно."
   end
 end
-
-  
-
  
-
-  
 
 
 
