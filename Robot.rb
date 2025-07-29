@@ -21,16 +21,16 @@ loop do
     y = argyments[1].to_i
     direction = argyments[2].to_s
   elsif command == "move"
-    move = [x, y, direction]
-    if direction == "Север"
-      y = y + 1
+    if direction == "Запад"
+      x = x - 1
     elsif direction == "ЮГ"
       y = y - 1
     elsif direction == "Восток"
       x = x + 1
-    else
-      x = x - 1
+    else direction == "Север"
+      y = y + 1
     end
+    #не видит во втором if ничего кроме else , почему пока не ясно
   elsif command == "report"
     report = [x, y , direction]
     puts report
@@ -47,7 +47,7 @@ end
   
 
 
-  #puts report
+
 
 
 
