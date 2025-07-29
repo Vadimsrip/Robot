@@ -13,18 +13,24 @@ loop do
   # downcase преобразует буквы в маленькие!
   # PLACE вводится с клавиатуры
   # удаляекм лишнее с помощью strip для вводеа через энтер
-  puts command.inspect
   
-
   if command == "place"
     command_2 = gets.to_s.strip.downcase.split
     argyments = command_2[1].split(",")
-    puts argyments.inspect
-    x = argyments[0]
-    y = argyments[1]
-    direction = argyments[2]
+    x = argyments[0].to_i
+    y = argyments[1].to_i
+    direction = argyments[2].to_s
   elsif command == "move"
-    #и вот здесь я хотел добавить if , со смыслом что если координата F = какое либо направление, тогда X или Y +1
+    move = [x, y, direction]
+    if direction == "Север"
+      y = y + 1
+    elsif direction == "ЮГ"
+      y = y - 1
+    elsif direction == "Восток"
+      x = x + 1
+    else
+      x = x - 1
+    end
   elsif command == "report"
     report = [x, y , direction]
     puts report
