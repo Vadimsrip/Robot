@@ -34,6 +34,26 @@ loop do
     report = [x, y , direction]
     puts report
     break
+  elsif command == "left" 
+    if direction == "север"
+      direction = "запад"
+    elsif direction == "юг"
+      direction = "восток"
+    elsif direction == "запад"
+      direction = "юг"
+    else 
+      direction = "север"
+    end
+  elsif command == "right"
+    if direction == "север"
+      direction = "восток"
+    elsif direction == "юг"
+      direction = "запад"
+    elsif direction == "запад"
+      direction = "север"
+    else
+      direction = "юг"
+    end
   else
     puts "Первыя команда всегда должна быть PLACE , введите команду верно."
   end
