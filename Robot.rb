@@ -3,17 +3,25 @@
 # Начало координат (0,0) можно считать самым юго-западным углом.
 # X-длинна , Y-ширина , F-направление робота
 
+class Robot
+
+  def initialize(x, y, direction)
+    @x = x 
+    @y = y
+    @direction = direction
+  end
+end 
+
 puts " Введите PLACE для запуска вашего робота.. "
-x = 0
-y = 0
-direction = nil
 
 loop do
-  command = gets.to_s.strip.downcase
+
+ command = gets.to_s.strip.downcase
   # downcase преобразует буквы в маленькие!
   # PLACE вводится с клавиатуры
   # удаляекм лишнее с помощью strip для вводеа через энтер
-  
+  Robot.new(0, 0 , nil)
+
   if command == "place"
     command_2 = gets.to_s.strip.downcase.split
     argyments = command_2[1].split(",")
@@ -64,9 +72,9 @@ loop do
     puts "Измените значение y , иначе робот разобьется"
   else
   end
-
+  
 end
- 
+
 
 
 
