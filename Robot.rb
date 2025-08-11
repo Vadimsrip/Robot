@@ -6,72 +6,98 @@
 class Robot
 
   def initialize(x, y, direction)
-    @x = x 
+    @x = x
     @y = y
     @direction = direction
   end
-end 
+
+  def place 
+    command_2 = gets.to_s.strip.downcase.split
+    argyments = command_2[1].split(",")
+    @x = argyments[0].to_i 
+    @y = argyments[1].to_i  
+    @direction = argyments[2].to_s
+  end 
+
+  def move
+    if @direction == "запад"
+      @x = @x - 1
+    elsif @direction == "юг"
+      @y = @y - 1
+    elsif @direction == "восток"
+      @x = @x + 1
+    else
+      @y = @y + 1
+    end
+  end
+
+  def report 
+     report = [@x,@y, @direction]
+    puts report
+  end 
+
+  def left 
+    if @direction == "север"
+      @direction = "запад"
+    elsif @direction == "юг"
+      @direction = "восток"
+    elsif @direction == "запад"
+      @direction = "юг"
+    else 
+      @direction = "север"
+    end
+  end 
+
+  def right
+    if @direction == "север"
+      @direction = "восток"
+    elsif @direction == "юг"
+      @direction = "запад"
+    elsif @direction == "запад"
+      @direction = "север"
+    else
+      @direction = "юг"
+    end
+  end
+
+  def sravnenie
+    if @x > 5 
+      puts "Измените значение x , иначе робот разобьется"
+    elsif @y > 5 
+      puts "Измените значение y , иначе робот разобьется"
+    else
+    end
+  end
+
+end
 
 puts " Введите PLACE для запуска вашего робота.. "
 
+robot1 = Robot.new(0, 0, nil)
+
 loop do
 
- command = gets.to_s.strip.downcase
+  command = gets.to_s.strip.downcase
   # downcase преобразует буквы в маленькие!
   # PLACE вводится с клавиатуры
   # удаляекм лишнее с помощью strip для вводеа через энтер
-  Robot.new(0, 0 , nil)
 
   if command == "place"
-    command_2 = gets.to_s.strip.downcase.split
-    argyments = command_2[1].split(",")
-    x = argyments[0].to_i 
-    y = argyments[1].to_i  
-    direction = argyments[2].to_s
+    robot1.place
   elsif command == "move"
-    if direction == "запад"
-      x = x - 1
-    elsif direction == "юг"
-      y = y - 1
-    elsif direction == "восток"
-      x = x + 1
-    else
-      y = y + 1
-    end
+    robot1.move
   elsif command == "report"
-    report = [x, y , direction]
-    puts report
+    robot1.report
     break
-  elsif command == "left" 
-    if direction == "север"
-      direction = "запад"
-    elsif direction == "юг"
-      direction = "восток"
-    elsif direction == "запад"
-      direction = "юг"
-    else 
-      direction = "север"
-    end
+  elsif command == "left"
+    robot1.left
   elsif command == "right"
-    if direction == "север"
-      direction = "восток"
-    elsif direction == "юг"
-      direction = "запад"
-    elsif direction == "запад"
-      direction = "север"
-    else
-      direction = "юг"
-    end
+    robot1.right
   else
     puts "Первыя команда всегда должна быть PLACE , введите команду верно."
   end
 
-  if x > 5 
-    puts "Измените значение x , иначе робот разобьется"
-  elsif y > 5 
-    puts "Измените значение y , иначе робот разобьется"
-  else
-  end
+robot1.sravnenie
   
 end
 
