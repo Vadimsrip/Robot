@@ -11,12 +11,10 @@ class Robot
     @direction = direction
   end
 
-  def place 
-    command_2 = gets.to_s.strip.downcase.split
-    argyments = command_2[1].split(",")
-    @x = argyments[0].to_i 
-    @y = argyments[1].to_i  
-    @direction = argyments[2].to_s
+  def place(x, y, direction) 
+    @x = x
+    @y = y
+    @direction = direction
   end 
 
   def move
@@ -33,7 +31,6 @@ class Robot
 
   def report 
      report = [@x,@y, @direction]
-    puts report
   end 
 
   def left 
@@ -71,6 +68,7 @@ class Robot
 
 end
 
+
 puts " Введите PLACE для запуска вашего робота.. "
 
 robot1 = Robot.new(0, 0, nil)
@@ -78,16 +76,19 @@ robot1 = Robot.new(0, 0, nil)
 loop do
 
   command = gets.to_s.strip.downcase
-  # downcase преобразует буквы в маленькие!
-  # PLACE вводится с клавиатуры
-  # удаляекм лишнее с помощью strip для вводеа через энтер
-
+  
   if command == "place"
-    robot1.place
+    command_2 = gets.to_s.strip.downcase.split
+    argyments = command_2[1].split(",")
+    x = argyments[0].to_i 
+    y = argyments[1].to_i  
+    direction = argyments[2].to_s
+    robot1.place(x,y,direction)
   elsif command == "move"
     robot1.move
   elsif command == "report"
     robot1.report
+    puts robot1.report
     break
   elsif command == "left"
     robot1.left
