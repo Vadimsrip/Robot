@@ -5,19 +5,22 @@
 
 class Robot
 
-  def initialize(x, y, direction)
+  def initialize(x, y , direction)
     @x = x
     @y = y
     @direction = direction
+    place(x,y,direction)
   end
 
-  def place(x, y, direction) 
+  def place(x, y, direction)
     @x = x
     @y = y
     @direction = direction
+    validate
   end 
 
   def move
+    validate
     if @direction == "запад"
       @x = @x - 1
     elsif @direction == "юг"
@@ -30,7 +33,7 @@ class Robot
   end
 
   def report 
-     report = [@x,@y, @direction]
+    [@x,@y, @direction]
   end 
 
   def left 
@@ -56,8 +59,9 @@ class Robot
       @direction = "юг"
     end
   end
-
-  def sravnenie
+  
+  private 
+  def validate
     if @x > 5 
       puts "Измените значение x , иначе робот разобьется"
     elsif @y > 5 
@@ -83,22 +87,20 @@ loop do
     x = argyments[0].to_i 
     y = argyments[1].to_i  
     direction = argyments[2].to_s
-    robot1.place(x,y,direction)
+    robot1.place(x, y, direction)
   elsif command == "move"
     robot1.move
   elsif command == "report"
-    robot1.report
     puts robot1.report
-    break
   elsif command == "left"
     robot1.left
-  elsif command == "right"
+  elsif command == "right" 
     robot1.right
+  elsif command == "exit"
+    break
   else
     puts "Первыя команда всегда должна быть PLACE , введите команду верно."
   end
-
-robot1.sravnenie
   
 end
 
